@@ -6,28 +6,26 @@ var Orders = require('../models/order');
 // http://localhost:3000/orders
 router.get('/', function(req, res, next) {
   // GET /orders
-  Orders.find({}).exec(function (err, orders) {
+  let cutOffTime = new Date(new Date().setDate(new Date().getDate() - 2)).toISOString();
+  Orders.find({ orderDateTime : { $gt: cutOffTime }}).exec(function (err, orders) {
     if (!err) {
 
       // initiate client data to send 
       let clientData = {};
 
       // transform data for client app 
-      let cutOffTime = new Date(new Date().setDate(new Date().getDate() - 2));
       orders.forEach(order => {
         let orderDateTime = new Date(order.orderDateTime);
-        if (orderDateTime > cutOffTime) {
-          if (!(order.itemName in clientData)) {
-            clientData[order.itemName] = {
-              itemName: order.itemName,
-              recentPurchase: 1,
-              lastestPurchaseTime: orderDateTime
-            }
-          } else {
-            clientData[order.itemName].recentPurchase += 1;
-            if (clientData[order.itemName].lastestPurchaseTime < orderDateTime) {
-              clientData[order.itemName].lastestPurchaseTime = orderDateTime;
-            }
+        if (!(order.itemName in clientData)) {
+          clientData[order.itemName] = {
+            itemName: order.itemName,
+            recentPurchase: 1,
+            lastestPurchaseTime: orderDateTime
+          }
+        } else {
+          clientData[order.itemName].recentPurchase += 1;
+          if (clientData[order.itemName].lastestPurchaseTime < orderDateTime) {
+            clientData[order.itemName].lastestPurchaseTime = orderDateTime;
           }
         }
       });

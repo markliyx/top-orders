@@ -34,12 +34,10 @@ app.set('view engine', 'jade');
 
 // allow origin access
 const allowedOrigins = ['http://localhost:3000'];
-const options = {
-  origin: allowedOrigins
-};
 
 app.use(logger('dev'));
-app.use(cors(options));
+app.use(cors());
+app.options('*', cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
