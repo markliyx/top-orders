@@ -1,5 +1,5 @@
 import React from 'react';
-import OrderList from './orders/OrderList';
+import OrderList from './components/order_components/OrderList';
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       <div className="row"> 
         <div className="col-sm-12"> 
           <div className="page-header"> 
-            <h1>Trending Order App</h1>
+            <h1 className="text-center">Trending Order App</h1>
           </div>
         </div>
       </div>
