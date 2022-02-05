@@ -9,23 +9,6 @@ Assume the customers around a campus order 5000 orders a day from 50 local resta
     * a time tag `ordered 3 min ago`
 4. **Use a heuristic to determine which trending products gets returned higher. Base heuristic on both recency and number of recent purchases.**
 
-## Requirements
-
-1. Implement a Full-Stack solution including web server, backend persistence and associated code.
-2. Please submit with in 72 hours from the time you accept invitation. (If circumstances don't allow for this, please let us know early!)
-3. You can use pseudocode for parts of web application. For instance, you could replace a function body with "assume this service has the following API."
-
-## Practices
-
-### Quality of code 
-
-Please use best practices for writing code and publish to this repo. 
-
-### Q & A
-
-- Please create an issue and tag `@shrimuthu`, `@aduca98`, `@nprbst` and `@seankwalker` for any questions.
-- **When you are ready to submit, please create an issue and tag `@BiancaVGreen`, `@shrimuthu`, and `@nprbst`.**
-
 ### Data
 
 For sample data, you may use [Sample Orders](https://docs.google.com/spreadsheets/d/1xfAjSlBflehOYj4O7I2YkfcBB1b9VgSHg9X-SmRWmsE/edit#gid=280279953), or generate your own.
